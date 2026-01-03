@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriScan - Smart Nutrition Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* --- CSS VARIABLES & RESET --- */
+    :root {
+      /* Colors extracted from your icon */
+      --primary-orange: #FF8C00;
+      --primary-yellow: #FFC107;
+      --dark-grey: #333333;
+      --light-grey: #f4f4f4;
+      --white: #ffffff;
+      --text-color: #2c3e50;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--white);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- LAYOUT UTILITIES --- */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- HEADER --- */
+    header {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark-grey);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #fffcf5 0%, #fff4e0 100%);
+      padding-top: 80px;
+      /* Space for header */
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+      padding-right: 40px;
+      opacity: 0;
+      /* For JS Animation */
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+
+    .hero-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--dark-grey);
+    }
+
+    .hero-text h1 span {
+      color: var(--primary-orange);
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #666;
+      max-width: 500px;
+    }
+
+    /* --- HERO IMAGE (App Icon Showcase) --- */
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 300px;
+      position: relative;
+    }
+
+    .icon-wrapper {
+      width: 350px;
+      height: 350px;
+      background: white;
+      border-radius: 60px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .icon-wrapper img {
+      width: 80%;
+      height: auto;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    /* --- DOWNLOAD BUTTONS --- */
+    .download-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .store-btn {
+      display: flex;
+      align-items: center;
+      background-color: var(--dark-grey);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: transform 0.2s ease, background-color 0.2s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .store-btn:hover {
+      transform: translateY(-2px);
+      background-color: black;
+    }
+
+    .store-btn i {
+      font-size: 28px;
+      margin-right: 12px;
+    }
+
+    .btn-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn-text span:first-child {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+    }
+
+    .btn-text span:last-child {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    /* --- FEATURES SECTION --- */
+    .features {
+      padding: 80px 0;
+      background-color: var(--white);
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+    }
+
+    .feature-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .feature-card {
+      background: var(--light-grey);
+      padding: 30px;
+      border-radius: 20px;
+      width: 300px;
+      text-align: left;
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      color: var(--primary-orange);
+      margin-bottom: 20px;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: var(--dark-grey);
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    footer p {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .hero {
+        text-align: center;
+        padding-top: 100px;
+      }
+
+      .hero-content {
+        flex-direction: column-reverse;
+        gap: 50px;
+      }
+
+      .hero-text {
+        padding-right: 0;
+      }
+
+      .hero-text p {
+        margin: 0 auto 30px auto;
+      }
+
+      .download-buttons {
+        justify-content: center;
+      }
+
+      .icon-wrapper {
+        width: 250px;
+        height: 250px;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="icon.png" alt="NutriScan Logo">
+        NutriScan
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text" id="heroText">
+            <h1>Nutrition Made <br><span>Simple.</span></h1>
+            <p>Scan your meals, track your macros and micros, and achieve your health goals effortlessly with NutriScan. The smart
+              way to eat better.</p>
+
+            <div class="download-buttons">
+              <a href="https://testflight.apple.com/join/jxJJmjcn" class="store-btn">
+                <i class="fab fa-apple"></i>
+                <div class="btn-text">
+                  <span>Download on</span>
+                  <span>TestFlight</span>
+                </div>
+              </a>
+
+              <a href="#" class="store-btn">
+                <i class="fab fa-android"></i>
+                <div class="btn-text">
+                  <span>Download</span>
+                  <span>Android APK</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <div class="icon-wrapper">
+              <img src="icon.png" alt="NutriScan App Icon">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <h2>Why NutriScan?</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-camera"></i></div>
+            <h3>Instant Scanning</h3>
+            <p>Point your camera at any food item or barcode for instant nutritional breakdown.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+            <h3>Macro & Micro Tracking</h3>
+            <p>Visualize your daily protein, carbs, fats, vitamins, and minerals with intuitive charts.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-heart"></i></div>
+            <h3>Health Insights</h3>
+            <p>Get personalized recommendations based on your dietary goals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 NutriScan. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple Reveal Animation on Page Load
+    document.addEventListener('DOMContentLoaded', () => {
+      const heroText = document.getElementById('heroText');
+      // Add a slight delay for effect
+      setTimeout(() => {
+        heroText.classList.add('visible');
+      }, 200);
+    });
+
+    // Add smooth scrolling for anchors (if you add nav links later)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
