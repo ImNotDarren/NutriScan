@@ -203,10 +203,80 @@
       font-weight: 600;
     }
 
+    /* --- APP SHOWCASE SECTION (NEW) --- */
+    .app-showcase {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .section-header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    .showcase-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 100px;
+      gap: 60px;
+    }
+
+    /* Alternating Layout: Even rows reverse direction */
+    .showcase-row:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .showcase-text {
+      flex: 1;
+    }
+
+    .showcase-text h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--dark-grey);
+    }
+
+    .showcase-text p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .showcase-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone-mockup {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 35px;
+      /* Add a 'phone frame' border */
+      border: 8px solid #333; 
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .phone-mockup:hover {
+      transform: scale(1.02);
+    }
+
     /* --- FEATURES SECTION --- */
     .features {
       padding: 80px 0;
-      background-color: var(--white);
+      background-color: var(--light-grey); /* Changed to contrast with Showcase */
       text-align: center;
     }
 
@@ -223,12 +293,13 @@
     }
 
     .feature-card {
-      background: var(--light-grey);
+      background: var(--white); /* Changed to white card on grey bg */
       padding: 30px;
       border-radius: 20px;
       width: 300px;
       text-align: left;
       transition: transform 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
     .feature-card:hover {
@@ -286,6 +357,17 @@
       .hero-text h1 {
         font-size: 2.5rem;
       }
+
+      /* Stack showcase rows on mobile */
+      .showcase-row, .showcase-row:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      
+      .phone-mockup {
+        max-width: 260px;
+      }
     }
   </style>
 </head>
@@ -307,8 +389,7 @@
         <div class="hero-content">
           <div class="hero-text" id="heroText">
             <h1>Nutrition Made <br><span>Simple.</span></h1>
-            <p>Scan your meals, track your macros and micros, and achieve your health goals effortlessly with NutriScan. The smart
-              way to eat better.</p>
+            <p>Scan your meals, track your macros and micros, and achieve your health goals effortlessly with NutriScan. The smart way to eat better.</p>
 
             <div class="download-buttons">
               <a href="https://testflight.apple.com/join/jxJJmjcn" class="store-btn">
@@ -335,6 +416,62 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="app-showcase">
+      <div class="container">
+        
+        <div class="section-header">
+            <h2>See NutriScan in Action</h2>
+            <p>From visual recognition to daily progress tracking.</p>
+        </div>
+
+        <div class="showcase-row">
+            <div class="showcase-text">
+                <h3>Visual Food Intelligence</h3>
+                <p>Simply point your camera at your meal. NutriScan identifies the dish—like this Tonkotsu Ramen—instantly.</p>
+                <p>Get immediate insights into calories, protein, fats, and carbs without typing a single word. Our AI accounts for ingredients automatically.</p>
+            </div>
+            <div class="showcase-image">
+                <img src="./screenshots/main.png" alt="NutriScan scanning Tonkotsu Ramen" class="phone-mockup">
+            </div>
+        </div>
+
+        <div class="showcase-row">
+            <div class="showcase-text">
+                <h3>Go Beyond Calories</h3>
+                <p>Health isn't just about energy; it's about nutrients. Unlock the "Full Nutrition List" to see exactly what fuels you.</p>
+                <p>Track hydration, sodium levels, fats, and essential minerals. Perfect for specific dietary needs or athletic performance tracking.</p>
+            </div>
+            <div class="showcase-image">
+                <img src="./screenshots/nutrition_list.png" alt="Full Nutrition List Breakdown" class="phone-mockup">
+            </div>
+        </div>
+
+        <div class="showcase-row">
+            <div class="showcase-text">
+                <h3>Your Daily Health Dashboard</h3>
+                <p>Get a bird's-eye view of your nutrition with your personalized dashboard. See your overall "Health Score" based on your diet quality.</p>
+                <p>Monitor essential macros like Protein, Carbs, and Fat with easy-to-read progress rings, and keep an eye on vital metrics like water intake and fiber.</p>
+            </div>
+            <div class="showcase-image">
+                <img src="./screenshots/dashboard.png" alt="NutriScan Daily Dashboard showing macros and health score" class="phone-mockup">
+            </div>
+        </div>
+
+        <div class="showcase-row">
+            <div class="showcase-text">
+                <h3>Widgets for Quick Access</h3>
+                <p>Stay on top of your goals without even opening the app. Add the NutriScan widget to your home screen for instant progress updates.</p>
+                <p>See your daily Calorie, Protein, Carb, and Fat intake at a glance, right from your phone's home screen.</p>
+                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;"><em>* Widgets are currently available on iOS only.</em></p>
+            </div>
+            <div class="showcase-image">
+                <img src="./screenshots/widget.png" alt="NutriScan Home Screen Widgets" class="phone-mockup">
+            </div>
+        </div>
+
       </div>
     </section>
 
@@ -381,8 +518,6 @@
     // Add smooth scrolling for anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        // We prevent default if there's no onclick attribute, 
-        // but since we added onclick to the android button, that handles itself.
         if(!this.getAttribute('onclick')) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
