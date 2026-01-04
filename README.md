@@ -28,7 +28,7 @@ From counting calories to tracking specific fatty acids and vitamins, NutriScan 
 
 | **Instant Scanning** | **Detailed Nutrition** |
 |:---:|:---:|
-| <img src="screenshots/main.PNG" width="250" alt="Scanning Main Screen"> | <img src="screenshots/nutrition_list.png" width="250" alt="Nutrition List"> |
+| <img src="screenshots/main.png" width="250" alt="Scanning Main Screen"> | <img src="screenshots/nutrition_list.png" width="250" alt="Nutrition List"> |
 | **Smart Recognition** | **Deep Data Insights** |
 
 <br>
