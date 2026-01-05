@@ -5,7 +5,8 @@
   
   <p>
     <a href="https://imnotdarren.github.io/NutriScan/"><strong>🌐 Visit the Website</strong></a> |
-    <a href="https://testflight.apple.com/join/jxJJmjcn"><strong>📲 Download on TestFlight</strong></a>
+    <a href="https://testflight.apple.com/join/jxJJmjcn"><strong>📲 Download on TestFlight</strong></a> |
+    <a href="./android_apks/nutriscan.apk"><strong>🤖 Download Android APK</strong></a>
   </p>
 </div>
 
@@ -40,9 +41,10 @@ From counting calories to tracking specific fatty acids and vitamins, NutriScan 
 
 ## 📥 Download
 
-### iOS (Beta)
+### iOS
 Join our TestFlight beta program to get early access to the latest features.
 [**Download for iOS**](https://testflight.apple.com/join/jxJJmjcn)
 
 ### Android
-*Coming soon...*
+Download the latest APK directly to your device.
+[**Download Android APK**](./android_apks/nutriscan.apk)
