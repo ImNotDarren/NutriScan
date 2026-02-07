@@ -5,8 +5,7 @@
   
   <p>
     <a href="https://imnotdarren.github.io/NutriScan/"><strong>🌐 Visit the Website</strong></a> |
-    <a href="https://testflight.apple.com/join/jxJJmjcn"><strong>📲 Download on TestFlight</strong></a> |
-    <a href="./android_apks/nutriscan.apk"><strong>🤖 Download Android APK</strong></a>
+    <a href="https://testflight.apple.com/join/jxJJmjcn"><strong>📲 Download on TestFlight</strong></a>
   </p>
 </div>
 
