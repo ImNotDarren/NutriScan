@@ -294,6 +294,7 @@
       transform: scale(1.02);
     }
 
+
     /* --- FEATURES SECTION --- */
     .features {
       padding: 80px 0;
@@ -406,6 +407,7 @@
       margin-bottom: 15px;
     }
 
+
     .footer-links {
       display: flex;
       justify-content: center;
@@ -487,10 +489,13 @@
 
   <header>
     <div class="container">
-      <a href="#" class="logo">
-        <img src="icon.png" alt="NutriScan Logo">
-        NutriScan
-      </a>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <a href="#" class="logo">
+          <img src="icon.png" alt="NutriScan Logo">
+          NutriScan
+        </a>
+        <img src="screenshots/emory-logo.png" alt="Emory University" style="height: 40px; width: auto;">
+      </div>
       <nav>
         <a href="#support" class="nav-link">Support</a>
       </nav>
@@ -544,37 +549,48 @@
 
         <div class="showcase-row">
           <div class="showcase-text">
-            <h3>Visual Food Intelligence</h3>
-            <p>Simply point your camera at your meal. NutriScan identifies the dish—like this Tonkotsu Ramen—instantly.
+            <h3>Instant Meal Scanning</h3>
+            <p>Simply point your camera at your meal. NutriScan identifies dishes like Pineapple Fried Rice instantly.
             </p>
-            <p>Get immediate insights into calories, protein, fats, and carbs without typing a single word. Our AI
-              accounts for ingredients automatically.</p>
+            <p>See calories, protein, fats, and carbs at a glance so you can log meals in seconds instead of minutes.</p>
           </div>
           <div class="showcase-image">
-            <img src="./screenshots/main.png" alt="NutriScan scanning Tonkotsu Ramen" class="phone-mockup">
+            <img src="./screenshots/main.png" alt="NutriScan scanning Pineapple Fried Rice" class="phone-mockup">
           </div>
         </div>
 
         <div class="showcase-row">
           <div class="showcase-text">
-            <h3>Go Beyond Calories</h3>
-            <p>Health isn't just about energy; it's about nutrients. Unlock the "Full Nutrition List" to see exactly
-              what fuels you.</p>
-            <p>Track hydration, sodium levels, fats, and essential minerals. Perfect for specific dietary needs or
-              athletic performance tracking.</p>
+            <h3>Recognized Foods &amp; Portions</h3>
+            <p>NutriScan breaks your plate into individual foods with AI-recognized tags and portions.</p>
+            <p>Quickly review or adjust each item and serving so your log stays accurate without manual searching.</p>
           </div>
           <div class="showcase-image">
-            <img src="./screenshots/nutrition_list.png" alt="Full Nutrition List Breakdown" class="phone-mockup">
+            <img src="./screenshots/main-recognized-food.png" alt="Recognized foods and servings in NutriScan"
+              class="phone-mockup">
+          </div>
+        </div>
+
+        <div class="showcase-row">
+          <div class="showcase-text">
+            <h3>Trusted Nutrition Facts</h3>
+            <p>Dive into a full Nutrition Facts label generated for your meal, including calories, macros, and key
+              micronutrients.</p>
+            <p>NutriScan clearly flags that values are AI estimates and lets you tap through for sources so you know
+              where numbers come from.</p>
+          </div>
+          <div class="showcase-image">
+            <img src="./screenshots/main-nutrition-facts.png" alt="AI generated Nutrition Facts label in NutriScan"
+              class="phone-mockup">
           </div>
         </div>
 
         <div class="showcase-row">
           <div class="showcase-text">
             <h3>Your Daily Health Dashboard</h3>
-            <p>Get a bird's-eye view of your nutrition with your personalized dashboard. See your overall "Health Score"
-              based on your diet quality.</p>
-            <p>Monitor essential macros like Protein, Carbs, and Fat with easy-to-read progress rings, and keep an eye
-              on vital metrics like water intake and fiber.</p>
+            <p>See your Health Score, daily calories, and macro breakdown in one clean dashboard view.</p>
+            <p>Track how today compares to your targets and jump into the full nutrient list whenever you need more
+              detail.</p>
           </div>
           <div class="showcase-image">
             <img src="./screenshots/dashboard.png" alt="NutriScan Daily Dashboard showing macros and health score"
@@ -584,16 +600,25 @@
 
         <div class="showcase-row">
           <div class="showcase-text">
-            <h3>Widgets for Quick Access</h3>
-            <p>Stay on top of your goals without even opening the app. Add the NutriScan widget to your home screen for
-              instant progress updates.</p>
-            <p>See your daily Calorie, Protein, Carb, and Fat intake at a glance, right from your phone's home screen.
-            </p>
-            <p style="font-size: 0.9rem; color: #888; margin-top: 10px;"><em>* Widgets are currently available on iOS
-                only.</em></p>
+            <h3>Track Monthly Progress</h3>
+            <p>Review your month at a glance with color-coded rings for Energy and Health Score on the calendar.</p>
+            <p>Spot trends and maintain your streak by visualizing your daily achievements over time.</p>
           </div>
           <div class="showcase-image">
-            <img src="./screenshots/widget.png" alt="NutriScan Home Screen Widgets" class="phone-mockup">
+            <img src="./screenshots/calendar.png" alt="NutriScan monthly calendar with health scores"
+              class="phone-mockup">
+          </div>
+        </div>
+
+        <div class="showcase-row">
+          <div class="showcase-text">
+            <h3>Detailed Daily Log</h3>
+            <p>Tap on any day to see a complete timeline of your meals and snacks.</p>
+            <p>Review detailed macro breakdowns for the entire day to ensure you're meeting your nutritional targets.</p>
+          </div>
+          <div class="showcase-image">
+            <img src="./screenshots/calendar-2.png" alt="NutriScan daily macros and logged meals"
+              class="phone-mockup">
           </div>
         </div>
 
@@ -643,7 +668,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; <span id="currentYear"></span> NutriScan. All rights reserved.</p>
+      <p>&copy; 2025 NutriScan x Emory University. All rights reserved.</p>
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
         <span>|</span>
@@ -659,9 +684,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       const heroText = document.getElementById('heroText');
       
-      // UPDATED: Set current year dynamically
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
-
       // Add a slight delay for effect
       setTimeout(() => {
         heroText.classList.add('visible');
