@@ -668,7 +668,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 NutriScan x Emory University. All rights reserved.</p>
+      <p>&copy; <span id="currentYear"></span> NutriScan x Emory University. All rights reserved.</p>
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
         <span>|</span>
@@ -683,6 +683,10 @@
     // Simple Reveal Animation on Page Load
     document.addEventListener('DOMContentLoaded', () => {
       const heroText = document.getElementById('heroText');
+      const yearSpan = document.getElementById('currentYear');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
       
       // Add a slight delay for effect
       setTimeout(() => {
