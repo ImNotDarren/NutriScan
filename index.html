@@ -10,13 +10,15 @@
   <style>
     /* --- CSS VARIABLES & RESET --- */
     :root {
-      /* Colors extracted from your icon */
-      --primary-orange: #FF8C00;
-      --primary-yellow: #FFC107;
-      --dark-grey: #333333;
-      --light-grey: #f4f4f4;
+      /* Colors matched to the app's warm palette */
+      --primary-orange: #E8761B;
+      --primary-orange-light: #F09030;
+      --dark-brown: #3B2F2A;
+      --warm-cream: #F0E9DE;
+      --warm-cream-light: #FAF7F2;
+      --warm-beige: #E5DDD1;
       --white: #ffffff;
-      --text-color: #2c3e50;
+      --text-color: #3B2F2A;
     }
 
     * {
@@ -63,7 +65,7 @@
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--dark-grey);
+      color: var(--dark-brown);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -76,7 +78,7 @@
     }
 
     .nav-link {
-      color: var(--dark-grey);
+      color: var(--dark-brown);
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
@@ -92,7 +94,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, #fffcf5 0%, #fff4e0 100%);
+      background: linear-gradient(135deg, var(--warm-cream-light) 0%, var(--warm-beige) 100%);
       padding-top: 80px;
       /* Space for header */
     }
@@ -124,7 +126,7 @@
       font-size: 3.5rem;
       line-height: 1.1;
       margin-bottom: 20px;
-      color: var(--dark-grey);
+      color: var(--dark-brown);
     }
 
     .hero-text h1 span {
@@ -134,7 +136,7 @@
     .hero-text p {
       font-size: 1.2rem;
       margin-bottom: 30px;
-      color: #666;
+      color: #6B5E54;
       max-width: 500px;
     }
 
@@ -151,9 +153,9 @@
     .icon-wrapper {
       width: 350px;
       height: 350px;
-      background: white;
+      background: var(--white);
       border-radius: 60px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 20px 50px rgba(59, 47, 42, 0.1);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -189,19 +191,19 @@
     .store-btn {
       display: flex;
       align-items: center;
-      background-color: var(--dark-grey);
+      background-color: var(--dark-brown);
       color: white;
       padding: 12px 24px;
       border-radius: 12px;
       text-decoration: none;
       transition: transform 0.2s ease, background-color 0.2s;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(59, 47, 42, 0.1);
       cursor: pointer;
     }
 
     .store-btn:hover {
       transform: translateY(-2px);
-      background-color: black;
+      background-color: #2A1F1A;
     }
 
     .store-btn i {
@@ -241,7 +243,7 @@
     }
 
     .section-header p {
-      color: #666;
+      color: #6B5E54;
       font-size: 1.1rem;
     }
 
@@ -266,12 +268,12 @@
     .showcase-text h3 {
       font-size: 2rem;
       margin-bottom: 20px;
-      color: var(--dark-grey);
+      color: var(--dark-brown);
     }
 
     .showcase-text p {
       font-size: 1.1rem;
-      color: #555;
+      color: #6B5E54;
       margin-bottom: 20px;
     }
 
@@ -286,7 +288,7 @@
       max-width: 380px;
       width: 100%;
       /* Removed CSS phone wrap borders and radius */
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+      filter: drop-shadow(0 10px 20px rgba(59, 47, 42, 0.15));
       transition: transform 0.3s ease;
     }
 
@@ -298,8 +300,10 @@
     /* --- FEATURES SECTION --- */
     .features {
       padding: 80px 0;
-      background-color: var(--light-grey);
+      background-color: var(--warm-cream);
       text-align: center;
+      border-top: 1px solid var(--warm-beige);
+      border-bottom: 1px solid var(--warm-beige);
     }
 
     .features h2 {
@@ -321,7 +325,7 @@
       width: 300px;
       text-align: left;
       transition: transform 0.3s;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 15px rgba(59, 47, 42, 0.08);
     }
 
     .feature-card:hover {
@@ -344,21 +348,21 @@
     .support-section h2 {
       font-size: 2.5rem;
       margin-bottom: 20px;
-      color: var(--dark-grey);
+      color: var(--dark-brown);
     }
 
     .support-card {
-      background-color: #fffcf5;
-      border: 2px solid #fff4e0;
+      background-color: var(--warm-cream-light);
+      border: 1px solid var(--warm-beige);
       border-radius: 20px;
       padding: 40px;
       max-width: 600px;
       margin: 0 auto;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 10px 30px rgba(59, 47, 42, 0.05);
     }
 
     .support-card p {
-      color: #666;
+      color: #6B5E54;
       margin-bottom: 25px;
       font-size: 1.1rem;
     }
@@ -373,7 +377,7 @@
     .contact-name {
       font-weight: 700;
       font-size: 1.2rem;
-      color: var(--dark-grey);
+      color: var(--dark-brown);
     }
 
     .contact-email-btn {
@@ -390,12 +394,12 @@
     }
 
     .contact-email-btn:hover {
-      background-color: #e67e00;
+      background-color: #C96415;
     }
 
     /* --- FOOTER --- */
     footer {
-      background-color: var(--dark-grey);
+      background-color: #2A1F1A;
       color: white;
       padding: 40px 0;
       text-align: center;
@@ -416,7 +420,7 @@
     }
 
     .footer-links a {
-      color: var(--primary-yellow);
+      color: var(--primary-orange-light);
       text-decoration: none;
       opacity: 0.8;
       font-size: 0.9rem;
